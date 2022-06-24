@@ -10,7 +10,7 @@ import org.apache.spark.rdd.RDD
   * @Version 1.0.0
   * @Description TODO
   */
-class main_object() {
+abstract class main_object() {
   val conf: SparkConf = new SparkConf().setMaster("local[*]").setAppName("sql-50")
   val sc = new SparkContext(conf)
   private val file_student = "D:\\coder\\learn\\spark_learn\\src\\main\\scala\\com\\learn\\spark_core\\school\\files\\student.txt"
@@ -27,5 +27,10 @@ class main_object() {
   def rdd_println[T <: Any](rdd:RDD[T]): Unit ={
     rdd.foreach(println)
   }
+
+  def no_print(i:Int): Unit ={
+    println(s"----------- $i ------------")
+  }
+
 
 }
